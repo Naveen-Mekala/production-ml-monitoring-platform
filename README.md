@@ -187,3 +187,19 @@ pytest -q
 **Naveen Mekala**
 
 [GitHub Profile](https://github.com/Naveen-Mekala)
+
+## Screenshots
+
+### Dashboard Overview
+
+![Production ML dashboard overview](screenshots/dashboard-overview.png)
+
+### Prediction History
+
+![Loan default prediction history](screenshots/prediction-history.png)
+
+### Data Drift Monitoring
+
+![Data drift monitoring results](screenshots/data-drift-monitoring.png)
+
+The drift example flags `loan_amount` at a 0.05 significance threshold. The displayed sample is small, so this result is illustrative and requires more observations before drawing conclusions.
