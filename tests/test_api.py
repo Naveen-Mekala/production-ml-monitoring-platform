@@ -1,3 +1,4 @@
+
 from fastapi.testclient import TestClient
 
 from app.main import app
@@ -73,3 +74,18 @@ def test_unknown_input_field_is_rejected():
         response = client.post("/predict", json=payload)
 
     assert response.status_code == 422
+
+
+def test_monitoring_summary_endpoint():
+    with TestClient(app) as client:
+        response = client.get("/monitoring/summary")
+
+    assert response.status_code == 200
+
+    result = response.json()
+    assert result["model_version"] == "1.0.0"
+    assert "total_predictions" in result
+    assert "predictions" in result
+    assert "metrics" in result
+    assert "drift" in result
+    assert isinstance(result["predictions"], list)

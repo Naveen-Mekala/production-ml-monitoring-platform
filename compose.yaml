@@ -28,4 +28,6 @@ services:
       - ./data:/app/data
     depends_on:
       - api
+    environment:
+      API_BASE_URL: "http://api:8000"
     restart: unless-stopped
